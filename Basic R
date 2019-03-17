@@ -1,0 +1,123 @@
+> print("Basic R codes")
+[1] "Basic R codes" 
+
+## Simple Aritmetic using R
+> A = 12+4
+> A
+[1] 16
+
+> B = A-12
+> B
+[1] 4
+
+> C = B*A
+> C
+[1] 64
+
+> D = C/8
+> D
+[1] 8
+
+> E <- log(D)
+> E
+[1] 2.079442
+
+## Understanding data types and Typecasting
+
+>> Character Data
+> data <- c("Rent","Interest","Wages","Profits")
+> typeof(data)
+[1] "character"
+> length(data)
+[1] 4
+> is.numeric(data)
+[1] FALSE
+> is.logical(data)
+[1] FALSE
+> is.character(data)
+[1] TRUE
+
+>> Logical Data and typecasting (explicit)
+> logi<-c(T,F,F,F,T,T,F,F,F)
+> mode(logi)
+[1] "logical"
+> is.numeric(logi)
+[1] FALSE
+> is.logical(logi)
+[1] TRUE
+> num <- as.numeric(logi)
+> num
+[1] 1 0 0 0 1 1 0 0 0
+> typeof(num)
+[1] "double"
+
+>> Typecasting (implict)
+> num_a <-c(num,5)
+> num_b<- as.logical (num_a)
+> num_b
+ [1]  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
+ 
+ ## Data Structures
+ 
+>> List
+> li<- list(1:20, month.abb, "hello",T,F,50:60)
+> li
+[[1]]
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+
+[[2]]
+ [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"
+
+[[3]]
+[1] "hello"
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] FALSE
+
+[[6]]
+ [1] 50 51 52 53 54 55 56 57 58 59 60
+ 
+ >> Matrix
+> mat <- matrix(1:20, ncol=2, nrow=10)
+> mat
+      [,1] [,2]
+ [1,]    1   11
+ [2,]    2   12
+ [3,]    3   13
+ [4,]    4   14
+ [5,]    5   15
+ [6,]    6   16
+ [7,]    7   17
+ [8,]    8   18
+ [9,]    9   19
+[10,]   10   20
+
+>> Data Frame
+> s.no<- c(1:5)
+> id <- c(1134,6451,8754,1124,6524)
+> wages <- c(25000, 17000,56000,43000,37000)
+> position <- c("Grade D","Grade E","Grade A", "Grade B","Grade C")
+> training <- c(T,T,F,T,F)
+> emp_df<- data.frame(Number=s.no, Emp_id=id, Salary=wages, Position=position, Training_status=training)
+> emp_df
+  Number Emp_id Salary Position Training_status
+1      1   1134  25000  Grade D            TRUE
+2      2   6451  17000  Grade E            TRUE
+3      3   8754  56000  Grade A           FALSE
+4      4   1124  43000  Grade B            TRUE
+5      5   6524  37000  Grade C           FALSE
+
+## Accessing vectors and lists
+
+>>Unnamed Vectors
+> a <- c(50:90)
+> a[c(4,10)]
+[1] 53 59
+
+>> Lists
+> li<- list(1:20, month.abb, "hello",T,F,50:60)
+> li [[2]][4:7]
+[1] "Apr" "May" "Jun" "Jul"
